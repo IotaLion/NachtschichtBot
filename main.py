@@ -113,7 +113,7 @@ async def on_message(message):
                     )
 
                     # Add reaction so user can delete it
-                    await warning_msg.add_reaction("🆗")
+                    # await warning_msg.add_reaction("🆗")
 
                 except discord.errors.NotFound:
                     pass
@@ -123,16 +123,16 @@ async def on_message(message):
     await bot.process_commands(message)
 
 
-@bot.event
-async def on_reaction_add(reaction, user):
-    if user.bot:
-        return
-
-    if reaction.emoji == "🆗" and reaction.message.mentions and user in reaction.message.mentions:
-        try:
-            await reaction.message.delete()
-        except discord.errors.NotFound:
-            pass
+# @bot.event
+# async def on_reaction_add(reaction, user):
+#     if user.bot:
+#         return
+#
+#     if reaction.emoji == "🆗" and reaction.message.mentions and user in reaction.message.mentions:
+#         try:
+#             await reaction.message.delete()
+#         except discord.errors.NotFound:
+#             pass
 
 
 @tasks.loop(minutes=5)

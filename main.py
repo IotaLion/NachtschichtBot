@@ -4,6 +4,10 @@ from datetime import datetime
 import pytz
 import os
 from dotenv import load_dotenv
+import threading
+from flask import Flask
+
+app = Flask(__name__)
 
 # Load environment variables from .env file
 load_dotenv()
@@ -168,6 +172,19 @@ async def force_check_error(ctx, error):
     if isinstance(error, commands.MissingPermissions):
         await ctx.send("❌ Du benötigst Administrator-Rechte für diesen Befehl!")
 
+
+@app.route("/")
+def home():
+    return "Bot is running!"
+
+
+def run_web():
+    port = int(os.environ.get("PORT", 5000))  # most hosts provide PORT
+    app.run(host="0.0.0.0", port=port)
+
+
+# Start the webserver in a separate thread
+threading.Thread(target=run_web).start()
 
 if __name__ == "__main__":
     bot.run(BOT_TOKEN)

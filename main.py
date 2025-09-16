@@ -18,7 +18,6 @@ ROLE_NAME = 'Gast'
 
 TIMEZONE = 'Europe/Berlin'
 
-
 ALLOWED_START_HOUR = 19  # debug
 ALLOWED_END_HOUR = 22  # debug
 
@@ -151,7 +150,8 @@ async def check_status(ctx):
     tz = pytz.timezone(TIMEZONE)
     now = datetime.now(tz)
     embed.add_field(name="Aktuelle Zeit", value=now.strftime("%H:%M:%S"), inline=True)
-    embed.add_field(name="Erlaubte Zeiten", value=f"{ALLOWED_START_HOUR:02d}:00 - {ALLOWED_END_HOUR:02d}:00", inline=True)
+    embed.add_field(name="Erlaubte Zeiten", value=f"{ALLOWED_START_HOUR:02d}:00 - {ALLOWED_END_HOUR:02d}:00",
+                    inline=True)
 
     await ctx.send(embed=embed)
 

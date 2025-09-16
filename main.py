@@ -13,13 +13,13 @@ BOT_TOKEN = os.getenv('DISCORD_TOKEN')
 CHANNEL_NAME = 'nachtschicht'
 ROLE_NAME = 'Gast'
 
-# ALLOWED_START_HOUR = 23  # start time: 23 Uhr
-# ALLOWED_END_HOUR = 6  # end time: 6 Uhr
+ALLOWED_START_HOUR = 23  # start time: 23 Uhr
+ALLOWED_END_HOUR = 6  # end time: 6 Uhr
 
 TIMEZONE = 'Europe/Berlin'
 
-ALLOWED_START_HOUR = 19  # debug
-ALLOWED_END_HOUR = 22  # debug
+# ALLOWED_START_HOUR = 19  # debug
+# ALLOWED_END_HOUR = 22  # debug
 
 # Set up bot intents
 intents = discord.Intents.default()
